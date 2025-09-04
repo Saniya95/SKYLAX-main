@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Utility to hide scrollbars for horizontal carousels */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+:root {
+  --background: #080707;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ededed;
+    --foreground: #080707;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00aaff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00aaffe3;
+}
+
+body {
+  /* Keep original dark base, add a faint radial to reduce visible section seams */
+  background: radial-gradient(120% 140% at 50% 0%, rgba(85,208,255,0.04) 0%, rgba(99,97,252,0.035) 30%, rgba(8,7,7,0) 70%), #080707 !important;
+  color: #F3F6FF !important;
+  font-family: 'Neue Montreal', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom_container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nav-root header {
+  max-width: 1280px !important;
+  padding: 0 !important;
+}
+
+@font-face {
+  font-family: 'Neue MontrealR';
+  src: url('/assets/fonts/neue/NeueMontreal-Regular.woff2') format('woff2'),
+    url('/assets/fonts/neue/NeueMontreal-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue MontrealM';
+  src: url('/assets/fonts/neue/NeueMontreal-Medium.woff2') format('woff2'),
+    url('/assets/fonts/neue/NeueMontreal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue MontrealL';
+  src: url('/assets/fonts/neue/NeueMontreal-Light.woff2') format('woff2'),
+    url('/assets/fonts/neue/NeueMontreal-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue MontrealB';
+  src: url('/assets/fonts/neue/NeueMontreal-Bold.woff2') format('woff2'),
+    url('/assets/fonts/neue/NeueMontreal-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class for Neue Montreal Regular font everywhere */
+.font_neue_montreal_regular {
+  font-family: 'Neue MontrealR', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.font_neue_montreal_medium {
+  font-family: 'Neue MontrealM', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.font_neue_montreal_light {
+  font-family: 'Neue MontrealL', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+.font_neue_montreal_bold {
+  font-family: 'Neue MontrealB', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.boxFeatures::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 16px;
+  background: linear-gradient(-40deg, #55D0FF 0%, #616CFC 31%, #090809 67%, #080707 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.boxFeatures::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(71, 89, 104, 0.2);
+  z-index: -2;
+}
+
+.hand-img {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 198px);
+  transform: translate(-50%, 0);
+  max-width: 329px;
+  pointer-events: none;
+  user-select: none;
+  z-index: -2;
+}
+
+.select_button button {
+  background-color: transparent !important;
+}
+
+/* .custom_gradient_bg {
+  border-image-source: linear-gradient(92.46deg, rgba(243, 246, 255, 0.2) -30.36%, rgba(243, 246, 255, 0) 92.05%);
+} */
+
+.custom_gradient_bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 12px;
+  background: linear-gradient(-40deg, #baebff00 0%, #baebff00 31%, #09080983 67%, #09080983 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.custom_gradient_bg::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: rgba(71, 89, 104, 0.2);
+  z-index: -2;
+}
+
+.bannerHeading {
+  background: linear-gradient(281.27deg, #2C3947 2.03%, #F8F8FF 40.42%, #F8F8FF 65.38%, #1B2228 102.26%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-fill-color: transparent !important;
+}
+
+.header_con {
+  width: 100%;
+  max-width: 1381px !important;
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+.cnt_select_root span {
+  font-size: 18px !important;
+}
+
+.banner_img {
+  max-width: 1160px;
+  margin-left: -390px;
+  margin-top: -90px;
+  position: relative;
+  z-index: 10;
+}
+
+.feat-sec-cl {
+  text-align: center;
+}
+
+.sub-title {
+  position: relative;
+  background: #1B2228;
+  border-radius: 12px;
+  padding: 17px 18px;
+  z-index: 1;
+}
+
+.sub-title::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 100%;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(142.16deg, #1B2228 28.49%, #374553 109.04%);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.sub-title::before {
+  content: '';
+  position: absolute;
+  top: calc(100% - 23px);
+  left: calc(100% - 24px);
+  width: 48px;
+  height: 46px;
+  background-image: url('/assets/images/sub-tit-img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.sub-title {
+  display: inline-block;
+  text-transform: uppercase;
+  color: var(--bg-white);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.abt-rgt-ovrl {
+  position: absolute;
+  top: -25%;
+  right: 0;
+  max-width: 994px;
+  /* z-index: -1; */
+  pointer-events: none;
+  user-select: none;
+}
+
+.cmn_heading {
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(280.29deg, #2C3947 5.55%, #F8F8FF 37.62%, #F8F8FF 58.49%, #1B2228 89.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.pln-txt-abs {
+  background: #47596833;
+  border-radius: 16px;
+  max-width: 365px;
+  height: fit-content;
+  position: absolute;
+  right: 1%;
+  bottom: 8%;
+  padding: 24px 32px;
+  background: linear-gradient(152deg, #1e1c39 5%, #47596833 76%)
+}
+
+.pln-txt-abs::before {
+  content: '';
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: -48px;
+  bottom: 100%;
+  background: #1E1C39;
+  border-radius: 8px;
+}
+
+.pln-txt-abs::after {
+  content: '';
+  position: absolute;
+  width: 51px;
+  height: 48px;
+  right: 93%;
+  bottom: 88%;
+  background-image: url(/assets/images/lft-crv.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.acordion_border::before {
+  content: "";
+	position: absolute;
+	inset: 0;
+	padding: 2px;
+	border-radius: 16px;
+  /* Blue ring */
+  background: linear-gradient(45deg, #55D0FF 0%, #6361FC 90%);
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	transition: all 0.3s ease-in-out;
+	/* opacity: 0;
+	z-index: -1; */
+}

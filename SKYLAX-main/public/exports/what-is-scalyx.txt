@@ -1,0 +1,6 @@
+H1 (Large heading ~64–110px): WHAT IS SCALYX?
+
+Paragraph (~22–30px): We are a high-end all-in-one retail management system that will help you improve your business processes. Our innovative platform streamlines operations, enhances customer experience, and drives growth for your retail business.
+
+Small Label (~20–22px): Scalyx platform
+Subtext (~14–16px): Smarter retail

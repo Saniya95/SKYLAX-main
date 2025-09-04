@@ -1,0 +1,152 @@
+Extracted Text and Images: Smart AI Solutions
+
+H1 (Large heading ~48–76px): Smart AI Solutions
+
+Card 1
+- Title (~32–43px): Smart Scalyx chatbot
+- Paragraph (~18–22px): Move beyond reactive decision-making to proactive strategy with AI that thinks like a retail expert.
+- Details (~18px title + ~15px body):
+  • Contextual understanding — Process and interpret complex retail data across inventory, sales, customer behavior, and market trends.
+  • Predictive analytics — Anticipate market shifts, customer needs, and operational challenges before they impact your business.
+  • Continuous learning — Evolve and improve with every interaction, becoming more aligned with your specific retail environment.
+  • Actionable insights — Convert complex data patterns into clear, actionable recommendations for immediate implementation.
+- Image: /assets/images/ai-img1.png
+
+Card 2
+- Title (~32–43px): Automation with AI agents Inventory Management
+- Paragraph (~18–22px): Deploy a digital workforce that never sleeps, never takes breaks, and continuously improves its own performance.
+- Details:
+  • Autonomous task execution — Eliminate repetitive work with AI agents that handle routine processes without human intervention.
+  • Adaptive workflow intelligence — Automatically optimize processes based on changing conditions and priorities.
+  • Cross-system orchestration — Connect siloed systems with AI agents that move data and trigger actions across your tech stack.
+  • Exception management — Intelligently route complex cases to the right human experts only when necessary.
+- Image: /assets/images/ai-img2.png
+
+Card 3
+- Title (~32–43px): AI-driven suggestions
+- Paragraph (~18–22px): Turn every store into a fulfillment center and every website into a showroom with Unified Stock - where your inventory works as hard as you do.
+- Details:
+  • Unified stock management — Seamlessly blend online and in-store inventory into one powerful ecosystem.
+  • Dynamic pricing intelligence — Responds to market changes in real-time to protect margins.
+  • Streamline operations — Automating routine decisions, freeing your team to focus on strategy.
+  • Enhance customer experiences — Personalized recommendations that drive larger basket sizes.
+- Image: /assets/images/ai-img3.png
+
+Card 4
+- Title (~32–43px): CRM solutions with AI
+- Paragraph (~18–22px): Turn every interaction into an opportunity with AI that understands your customers better than the competition.
+- Details:
+  • Predictive customer behavior — Anticipate needs and preferences before customers even express them.
+  • Personalization at scale — Deliver tailored experiences to every customer across all touchpoints.
+  • Relationship intelligence — Identify high-value customers and uncover opportunities to deepen engagement.
+  • Automated journey orchestration — Create seamless customer experiences that adapt in real-time.
+- Image: /assets/images/ai-img4.png
+
+Note: Backgrounds, gradient washes, and decorative overlays are intentionally excluded.
+
+---
+Minimal React (JSX) snippet with only text and images (no backgrounds)
+
+// SmartAISolutionsLite.jsx
+import React from "react";
+
+export default function SmartAISolutionsLite() {
+  const data = [
+    {
+      image: "/assets/images/ai-img1.png",
+      title: "Smart Scalyx chatbot",
+      message:
+        "Move beyond reactive decision-making to proactive strategy with AI that thinks like a retail expert.",
+      details: [
+        { title: "Contextual understanding", message: "Process and interpret complex retail data across inventory, sales, customer behavior, and market trends." },
+        { title: "Predictive analytics", message: "Anticipate market shifts, customer needs, and operational challenges before they impact your business." },
+        { title: "Continuous learning", message: "Evolve and improve with every interaction, becoming more aligned with your specific retail environment." },
+        { title: "Actionable insights", message: "Convert complex data patterns into clear, actionable recommendations for immediate implementation." },
+      ],
+    },
+    {
+      image: "/assets/images/ai-img2.png",
+      title: "Automation with AI agents Inventory Management",
+      message:
+        "Deploy a digital workforce that never sleeps, never takes breaks, and continuously improves its own performance.",
+      details: [
+        { title: "Autonomous task execution", message: "Eliminate repetitive work with AI agents that handle routine processes without human intervention." },
+        { title: "Adaptive workflow intelligence", message: "Automatically optimize processes based on changing conditions and priorities." },
+        { title: "Cross-system orchestration", message: "Connect siloed systems with AI agents that move data and trigger actions across your tech stack." },
+        { title: "Exception management", message: "Intelligently route complex cases to the right human experts only when necessary." },
+      ],
+    },
+    {
+      image: "/assets/images/ai-img3.png",
+      title: "AI-driven suggestions",
+      message:
+        "Turn every store into a fulfillment center and every website into a showroom with Unified Stock - where your inventory works as hard as you do.",
+      details: [
+        { title: "Unified stock management", message: "Seamlessly blend online and in-store inventory into one powerful ecosystem." },
+        { title: "Dynamic pricing intelligence", message: "Responds to market changes in real-time to protect margins." },
+        { title: "Streamline operations", message: "Automating routine decisions, freeing your team to focus on strategy." },
+        { title: "Enhance customer experiences", message: "Personalized recommendations that drive larger basket sizes." },
+      ],
+    },
+    {
+      image: "/assets/images/ai-img4.png",
+      title: "CRM solutions with AI",
+      message:
+        "Turn every interaction into an opportunity with AI that understands your customers better than the competition.",
+      details: [
+        { title: "Predictive customer behavior", message: "Anticipate needs and preferences before customers even express them." },
+        { title: "Personalization at scale", message: "Deliver tailored experiences to every customer across all touchpoints." },
+        { title: "Relationship intelligence", message: "Identify high-value customers and uncover opportunities to deepen engagement." },
+        { title: "Automated journey orchestration", message: "Create seamless customer experiences that adapt in real-time." },
+      ],
+    },
+  ];
+
+  const [index, setIndex] = React.useState(0);
+  const item = data[index];
+
+  return (
+    <section style={{ width: "100%" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 16px" }}>
+        <h1 style={{ fontSize: "48px", lineHeight: 1, textAlign: "center" }}>Smart AI Solutions</h1>
+        <div style={{ display: "flex", gap: 24, alignItems: "flex-start", justifyContent: "space-between", marginTop: 32 }}>
+          {/* Left: Title + Message + Pager */}
+          <div style={{ flex: "0 0 30%" }}>
+            <h2 style={{ fontSize: 32, lineHeight: 1.2, margin: 0 }}>{item.title}</h2>
+            <p style={{ fontSize: 18, lineHeight: 1.2, marginTop: 12 }}>{item.message}</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 16 }}>
+              <button onClick={() => setIndex(Math.max(0, index - 1))} disabled={index === 0}>Prev</button>
+              <div>{`0${index + 1}/0${data.length}`}</div>
+              <button onClick={() => setIndex(Math.min(data.length - 1, index + 1))} disabled={index === data.length - 1}>Next</button>
+            </div>
+          </div>
+
+          {/* Center: Image only (no background) */}
+          <div style={{ flex: "0 0 30%", display: "flex", justifyContent: "center" }}>
+            <img src={item.image} alt="ai-visual" style={{ height: 432, width: "auto" }} />
+          </div>
+
+          {/* Right: Details checklist (no icons) */}
+          <div style={{ flex: "0 0 33%" }}>
+            {item.details.map((d) => (
+              <div key={d.title} style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 18, fontWeight: 500 }}>{d.title}</div>
+                <div style={{ fontSize: 15, color: "#666" }}>{d.message}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+---
+Prompt for Copilot (integration without backgrounds)
+
+- Copy the SmartAISolutionsLite component into your project (a React file).
+- Place the images at /public/assets/images/ (ai-img1.png, ai-img2.png, ai-img3.png, ai-img4.png) or update the image paths accordingly.
+- Do not add any gradient or background styles. Keep only text and images as in this component.
+- Keep heading sizes approximately: H1 ~48px, card title ~32px, message ~18px, detail title ~18px, detail text ~15px.
+- If using Next.js, you may replace <img> with next/image, but keep layout simple and avoid any background or overlay props.
+- Center the main H1 and use the 3-column layout as shown; for mobile you may stack columns vertically.

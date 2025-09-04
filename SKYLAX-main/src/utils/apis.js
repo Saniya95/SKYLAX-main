@@ -1,0 +1,17 @@
+export const apis = {
+  get_auth: "/v1/get-auth",
+  signup: "/auth/signup",
+  signin: "/auth/signin",
+  logout: "/v1/auth/logout",
+  auth: "/v1/auth",
+  faqs: "/cms/faqs",
+  testimonials: "/cms/testimonials",
+  page: "/cms/page",
+  pricing: "/pricing",
+  profile:"/user/profile",
+  checkout:"/checkout",
+  update_profile:"/user/update-profile",
+  change_password:"/user/change-password",
+  schedule_demo:"/schedule-demo",
+  contact_advisor:"/cms/contact-advisor",
+};

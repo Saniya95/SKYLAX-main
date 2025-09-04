@@ -1,0 +1,91 @@
+/* Shared layered backgrounds (plain CSS so the linter doesn't flag Tailwind at-rules) */
+
+/* Generic section wrapper enabling absolute layers */
+.layer-section {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* Title gradient per spec (H2/H1) */
+.layer-title-gradient {
+	background: linear-gradient(280.51deg, #2C3947 15.43%, #F8F8FF 42.4%, #F8F8FF 59.94%, #1B2228 85.85%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+
+/* Subtext color for muted description */
+.layer-subtext { color: #899099; }
+
+/* Sequence overlay (top-to-bottom wash) used across multiple sections) */
+.layer-sequence-overlay {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: -10;
+	background: linear-gradient(
+		180deg,
+		rgba(18, 22, 27, 0) 0%,
+		rgba(18, 22, 27, 0.22) 18%,
+		rgba(18, 22, 27, 0.55) 70%,
+		rgba(18, 22, 27, 0.9) 100%
+	);
+}
+
+/* Accent ellipse from spec (Ellipse 11) */
+.layer-ellipse-11 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+	width: 1141.34px;
+	height: 177.39px;
+	background: #57C8FF; /* Accents/Blue */
+	filter: blur(300px);
+	transform: rotate(18.81deg);
+	border-radius: 9999px;
+	opacity: 0.6;
+}
+
+/* Optional gradient plate block from spec */
+.layer-gradient-plate {
+	position: absolute;
+	z-index: -10;
+	width: 1138px;
+	height: 536px;
+	left: -171px;
+	top: 277px;
+	border-radius: 48px;
+	background:
+		radial-gradient(120% 80% at 10% 30%, rgba(55, 200, 255, 0.18) 0%, rgba(55, 200, 255, 0.06) 45%, rgba(8, 7, 7, 0) 70%),
+		radial-gradient(95% 70% at 90% 10%, rgba(99, 97, 252, 0.16) 0%, rgba(99, 97, 252, 0.05) 40%, rgba(8, 7, 7, 0) 75%);
+}
+
+/* FAQ cards base (optional helpers) */
+.layer-card-base {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 16px;
+	padding: 24px;
+	gap: 32px;
+	width: 100%;
+	background: rgba(71, 89, 104, 0.2);
+}
+.layer-card-title {
+	color: #F3F6FF;
+	font-size: 24px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+}
+.layer-card-desc {
+	color: #899099;
+	font-size: 16px;
+	line-height: 120%;
+	letter-spacing: -0.01em;
+	opacity: 0.6;
+}
+
