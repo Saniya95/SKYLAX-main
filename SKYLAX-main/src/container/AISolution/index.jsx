@@ -13,6 +13,7 @@ import srt from "../../../public/assets/images/srt.png";
 import spt from "../../../public/assets/images/spt.png";
 import andyCopper from "../../../public/assets/images/andyCopper.png";
 import MobileCta from "@/common/layout/cta/mobileCta";
+import ToolsTogetherSection from "@/components/AI/ToolsTogetherSection";
 const AISolutationPage = () => {
   let sections = [
     {
@@ -67,6 +68,8 @@ const AISolutationPage = () => {
           <SmartSol />
         </div>
       </div>
+  {/* Tools Together section placed right after Smart AI Solutions */}
+  <ToolsTogetherSection />
       <div className="relative z-10">
         <BenefitsHorizontalScroll
           sections={sections}

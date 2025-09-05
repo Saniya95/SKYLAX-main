@@ -49,6 +49,7 @@ export default function Header({ onLoginClick }) {
   const [userData, setUserData] = useState({ name: "" });
   const [scrolled, setScrolled] = useState(false);
   const [showSubMenu, setShowSubMenu] = useState(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const router = useRouter();
   const { Get } = useApi();
   const { profile } = apis;
@@ -135,6 +136,21 @@ export default function Header({ onLoginClick }) {
     }
   };
 
+  const handleMouseEnter = (i) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setShowSubMenu(i);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowSubMenu(null);
+    }, 200); // 200ms delay before closing
+    setDropdownTimeout(timeout);
+  };
+
   return (
     <>
       <div
@@ -167,42 +183,47 @@ export default function Header({ onLoginClick }) {
             <div className="hidden sm:flex gap-8" justify="cente justify-end ">
               {links?.length
                 ? links?.map((v, i) => (
-                    <div key={i} className="relative">
-                      <Link
-                        color="foreground"
-                        className="flex items-center text-[18px] font-normal leading-[120%] space-[42.9px]"
-                        href={
-                          v?.name === "Services"
-                            ? "#"
-                            : v?.name === "Retail"
-                            ? "#"
-                            : v?.link
-                        }
-                        onClick={() => onShowSubMenu(i)}
-                      >
-                        {v?.name}
-                        {v?.name === "Services" ? (
+                    <div
+                      key={i}
+                      className="relative"
+                      onMouseEnter={() => handleMouseEnter(i)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {v?.name === "Services" ? (
+                        <div
+                          color="foreground"
+                          className="flex items-center text-[18px] font-normal leading-[120%] space-[42.9px] cursor-pointer"
+                        >
+                          {v?.name}
                           <ChevronDownIcon className={`h-4 w-4 text-[#F3F6FF] ml-2 font-semibold`} />
-                        ) : (
-                          ""
-                        )}
-                        {v?.name === "Retail" ? (
-                          <ChevronDownIcon className={`h-4 w-4 text-[#F3F6FF] ml-2 font-semibold`} />
-                        ) : (
-                          ""
-                        )}
-                      </Link>
+                        </div>
+                      ) : (
+                        <Link
+                          color="foreground"
+                          className="flex items-center text-[18px] font-normal leading-[120%] space-[42.9px]"
+                          href={v?.link}
+                        >
+                          {v?.name}
+                          {v?.name === "Retail" ? (
+                            <ChevronDownIcon className={`h-4 w-4 text-[#F3F6FF] ml-2 font-semibold`} />
+                          ) : (
+                            ""
+                          )}
+                        </Link>
+                      )}
                       {showSubMenu === i && v?.subLink?.length ? (
                         <div
                           className={`absolute top-[150%] left-[-35%] rounded-xl bg-[#F3F6FF] flex flex-col gap-3 h-fit p-4 ${
                             v?.name === "Retail" ? "w-[180%]" : "w-[150%]"
                           } `}
+                          onMouseEnter={() => handleMouseEnter(i)}
+                          onMouseLeave={handleMouseLeave}
                         >
                           {v?.subLink.map((val, idx) => (
                             <Link
                               key={idx}
                               href={val?.link}
-                              className="text-[#080707] text-lg font_neue_montreal_medium"
+                              className="text-[#080707] text-lg font_neue_montreal_medium hover:text-[#6361FC] transition-colors"
                             >
                               {val?.name}
                             </Link>

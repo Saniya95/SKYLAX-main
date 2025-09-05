@@ -19,6 +19,17 @@ const Banner = (props) => {
 
   return (
     <div className="flex flex-col bg-[url(/assets/images/about-ovrl.png)] bg-cover bg-center bg-no-repeat relative">
+      {/* Top-left gradient overlay (only gradient per reference) */}
+      <div aria-hidden className="absolute inset-0 z-0 pointer-events-none">
+        {/* Primary purple glow in the extreme left corner */}
+        <div className="absolute -top-[12%] -left-[14%] w-[1100px] h-[1100px] rounded-full 
+          bg-[radial-gradient(closest-side,rgba(99,97,252,0.48),rgba(99,97,252,0.14),rgba(8,7,7,0))]" />
+        {/* Soft blue accent slightly inward from the corner */}
+        <div className="absolute top-[6%] left-[10%] w-[760px] h-[760px] rounded-full 
+          bg-[radial-gradient(closest-side,rgba(85,208,255,0.32),rgba(85,208,255,0.10),rgba(8,7,7,0))]" />
+        {/* Horizontal fade to keep right side darker like the ref */}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,7,7,0.0)_0%,rgba(8,7,7,0.15)_55%,rgba(8,7,7,0.35)_80%,rgba(8,7,7,0.55)_100%)]" />
+      </div>
       <div className="relative z-[1]">
         <div className="header_con">
           <div className="w-full h-full relative flex flex-col items-center justify-center">
